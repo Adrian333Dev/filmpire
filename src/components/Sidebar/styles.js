@@ -14,6 +14,6 @@ export const StyledLink = styled(Box)(({ theme }) => ({
 	textDecoration: 'none',
 }));
 export const GenreImg = styled('img')(({ theme }) => ({
-	filter: theme.palette.mode === 'dark' ? 'dark' : 'invert(1)',
+	filter: theme.palette.mode === 'dark' && 'invert(1)',
 	height: '30px',
 }));
