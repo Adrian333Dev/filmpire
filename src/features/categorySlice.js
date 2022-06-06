@@ -10,10 +10,14 @@ export const categorySlice = createSlice({
 	reducers: {
 		selectCategory: (state, action) => {
 			state.categoryName = action.payload;
+			state.searchQuery = '';
+		},
+		searchMovie: (state, action) => {
+			state.searchQuery = action.payload;
 		},
 	},
 });
 
-export const { selectCategory } = categorySlice.actions;
+export const { selectCategory, searchMovie } = categorySlice.actions;
 
 export default categorySlice.reducer;
