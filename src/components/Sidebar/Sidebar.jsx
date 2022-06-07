@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -17,6 +17,7 @@ import { GenreImg, LinkContainer, StyledLink } from './styles';
 import { useGetGenresQuery } from '../../services/TMDB';
 import { selectCategory } from '../../features/categorySlice';
 import genreIcons from '../../assets/genres';
+import { userSelector } from '../../features/authSlice';
 
 const categories = [
 	{ label: 'Popular', value: 'popular' },
@@ -33,8 +34,13 @@ const Sidebar = ({ setMobileOpen }) => {
 	const theme = useTheme();
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
-
+	const categoryId = useSelector((state) => state.currentCategory);
 	const { data, isFetching } = useGetGenresQuery();
+
+	useEffect(() => {
+		setMobileOpen(false);
+	}, [categoryId]);
+
 	return (
 		<>
 			<LinkContainer onClick={() => navigate('/')}>

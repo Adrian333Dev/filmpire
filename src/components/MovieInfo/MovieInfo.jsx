@@ -67,17 +67,17 @@ const MovieInfo = () => {
 		sessionId: localStorage.getItem('session_id'),
 		page: 1,
 	});
-	 useEffect(() => {
-			setIsMovieFavorited(
-				!!favoriteMovies?.results?.find((movie) => movie?.id === data?.id)
-			);
-		}, [favoriteMovies, data]);
+	useEffect(() => {
+		setIsMovieFavorited(
+			!!favoriteMovies?.results?.find((movie) => movie?.id === data?.id)
+		);
+	}, [favoriteMovies, data]);
 
-		useEffect(() => {
-			setIsMovieWatchlisted(
-				!!watchlistMovies?.results?.find((movie) => movie?.id === data?.id)
-			);
-		}, [watchlistMovies, data]);
+	useEffect(() => {
+		setIsMovieWatchlisted(
+			!!watchlistMovies?.results?.find((movie) => movie?.id === data?.id)
+		);
+	}, [watchlistMovies, data]);
 	const [open, setOpen] = useState(false);
 	const [isMovieFavorited, setIsMovieFavorited] = useState(false);
 	const [isMovieWatchlisted, setIsMovieWatchlisted] = useState(false);
@@ -95,8 +95,6 @@ const MovieInfo = () => {
 		);
 		setIsMovieFavorited((prev) => !prev);
 	};
-
-	console.log({ isMovieWatchlisted });
 
 	const addToWatchlist = async () => {
 		await axios.post(

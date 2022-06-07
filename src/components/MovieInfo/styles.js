@@ -32,23 +32,19 @@ export const CastImg = styled('img')(({ theme }) => ({
 }));
 
 export const Links = styled(Box)(({ theme }) => ({
-	display: 'flex',
-	justifyContent: 'center',
-	alignItems: 'center',
-	textDecoration: 'none',
-	[theme.breakpoints.down('sm')]: {
-		padding: '0.5rem 1rem',
-	},
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		textDecoration: 'none',
+		[theme.breakpoints.down('sm')]: {
+			padding: '0.5rem 1rem',
+		},
 }));
 
 export const BtnsContainer = styled(Grid)(({ theme }) => ({
 	display: 'flex',
 	justifyContent: 'space-between',
-	flexWrap: 'wrap',
 	width: '100%',
-	[theme.breakpoints.down('sm')]: {
-		flexDirection: 'column',
-	},
 }));
 
 export const Poster = styled('img')(({ theme }) => ({
