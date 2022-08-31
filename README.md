@@ -1,4 +1,4 @@
-# Movie DB Project
+# Movie db project
 
 
 
