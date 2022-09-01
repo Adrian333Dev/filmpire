@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Box, Grid, Grow, Rating, Typography, Tooltip } from '@mui/material';
+import { Box, Grid, Grow, Rating, Tooltip } from '@mui/material';
 import { Img, Links, Title } from './styles';
 
 const Movie = ({ movie, i }) => {

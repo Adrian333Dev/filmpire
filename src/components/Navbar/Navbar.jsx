@@ -53,7 +53,7 @@ const Navbar = () => {
 			}
 		};
 		logInUser();
-	}, [token]);
+	}, [token, dispatch, sessionIdLS]);
 
 	return (
 		<>
@@ -84,7 +84,7 @@ const Navbar = () => {
 							<LinkBtn
 								color='inherit'
 								onClick={() => navigate(`/profile/${user.id}`)}
-							> 
+							>
 								{!isMobile && <>My Movies &nbsp;</>}
 								<Avatar
 									sx={{ width: 30, height: 30 }}

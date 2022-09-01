@@ -18,7 +18,6 @@ import {
 	ButtonGroup,
 	CircularProgress,
 	Grid,
-	Modal,
 	Rating,
 	Typography,
 } from '@mui/material';
@@ -50,7 +49,7 @@ const MovieInfo = () => {
 	const dispatch = useDispatch();
 	const { id } = useParams();
 	const { data, isFetching, error } = useGetMovieQuery(id);
-	const { data: recommendations, isFetching: isRecommendationsFetching } =
+	const { data: recommendations } =
 		useGetRecommendationsQuery({
 			id,
 			list: '/recommendations',
@@ -84,8 +83,7 @@ const MovieInfo = () => {
 
 	const addToFavorites = async () => {
 		await axios.post(
-			`https://api.themoviedb.org/3/account/${user.id}/favorite?api_key=${
-				process.env.REACT_APP_TMDB_KEY
+			`https://api.themoviedb.org/3/account/${user.id}/favorite?api_key=${process.env.REACT_APP_TMDB_KEY
 			}&session_id=${localStorage.getItem('session_id')}`,
 			{
 				media_type: 'movie',
@@ -98,8 +96,7 @@ const MovieInfo = () => {
 
 	const addToWatchlist = async () => {
 		await axios.post(
-			`https://api.themoviedb.org/3/account/${user.id}/watchlist?api_key=${
-				process.env.REACT_APP_TMDB_KEY
+			`https://api.themoviedb.org/3/account/${user.id}/watchlist?api_key=${process.env.REACT_APP_TMDB_KEY
 			}&session_id=${localStorage.getItem('session_id')}`,
 			{
 				media_type: 'movie',

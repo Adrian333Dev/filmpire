@@ -17,7 +17,6 @@ import { GenreImg, LinkContainer, StyledLink } from './styles';
 import { useGetGenresQuery } from '../../services/TMDB';
 import { selectCategory } from '../../features/categorySlice';
 import genreIcons from '../../assets/genres';
-import { userSelector } from '../../features/authSlice';
 
 const categories = [
 	{ label: 'Popular', value: 'popular' },
@@ -39,7 +38,7 @@ const Sidebar = ({ setMobileOpen }) => {
 
 	useEffect(() => {
 		setMobileOpen(false);
-	}, [categoryId]);
+	}, [categoryId, setMobileOpen]);
 
 	return (
 		<>

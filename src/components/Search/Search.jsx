@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { InputAdornment, TextField } from '@mui/material';
+import { useDispatch } from 'react-redux';
+import { InputAdornment } from '@mui/material';
 import { Search as SearchIcon } from '@mui/icons-material';
 
 import { Container, CssTextField } from './styles';

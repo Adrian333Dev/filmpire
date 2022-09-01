@@ -1,8 +1,7 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 import alanBtn from '@alan-ai/alan-sdk-web';
 import { ColorModeContext } from '../utils/ToggleColorMode';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 import { searchMovie, selectCategory } from '../features/categorySlice';
 import { fetchToken } from '../utils';
 
@@ -44,7 +43,7 @@ const useAlan = () => {
 				}
 			},
 		});
-	}, []);
+	}, [dispatch, setMode]);
 };
 
 export default useAlan;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { userSelector } from '../../features/authSlice';
 
 import { ExitToApp } from '@mui/icons-material';
@@ -27,7 +27,7 @@ const Profile = () => {
 	useEffect(() => {
 		refetchFavorites();
 		refetchWatchlisted();
-	}, []);
+	}, [refetchFavorites, refetchWatchlisted]);
 
 	const logOut = () => {
 		localStorage.clear();

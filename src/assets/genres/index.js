@@ -22,7 +22,7 @@ import popular from './popular.png';
 import topRated from './top rated.png';
 import upcoming from './upcoming.png';
 
-export default {
+const genres = {
   action,
   adventure,
   animation,
@@ -46,4 +46,6 @@ export default {
   popular,
   'top rated': topRated,
   upcoming,
-};
+}
+
+export default genres;
