@@ -40,6 +40,12 @@ const Sidebar = ({ setMobileOpen }) => {
 		setMobileOpen(false);
 	}, [categoryId, setMobileOpen]);
 
+	const clickHandler = (heading, label, id) => {
+		const labelId = label.replace(/\s/g, '-');
+		navigate(`/${heading}/${labelId}`);
+		dispatch(selectCategory(id));
+	}
+
 	return (
 		<>
 			<LinkContainer onClick={() => navigate('/')}>
@@ -52,8 +58,8 @@ const Sidebar = ({ setMobileOpen }) => {
 			<List>
 				<ListSubheader>Categories</ListSubheader>
 				{categories.map(({ label, value }) => (
-					<StyledLink onClick={() => navigate('/')} key={value}>
-						<ListItemButton onClick={() => dispatch(selectCategory(value))}>
+					<StyledLink onClick={() => clickHandler('categories', label, value)} key={value}>
+						<ListItemButton>
 							<ListItemIcon>
 								<GenreImg src={genreIcons[label.toLowerCase()]} />
 							</ListItemIcon>
@@ -71,8 +77,8 @@ const Sidebar = ({ setMobileOpen }) => {
 					</Box>
 				) : (
 					data.genres.map(({ name, id }) => (
-						<StyledLink onClick={() => navigate('/')} key={name}>
-							<ListItemButton onClick={() => dispatch(selectCategory(id))}>
+						<StyledLink onClick={() => clickHandler('genre', name, id)} key={name}>
+							<ListItemButton>
 								<ListItemIcon>
 									<GenreImg src={genreIcons[name.toLowerCase()]} />
 								</ListItemIcon>

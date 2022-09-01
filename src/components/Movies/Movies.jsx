@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 import {
 	Box,
 	CircularProgress,
@@ -11,14 +12,21 @@ import { useGetMoviesQuery } from '../../services/TMDB';
 import MovieList from '../MovieList/MovieList';
 import Pagination from '../Pagination/Pagination';
 import FeaturedMovie from '../FeaturedMovie/FeaturedMovie';
+import { useEffect } from 'react';
 
 const Movies = () => {
 	const [page, setPage] = useState(1);
+	const { id } = useParams();
 	const categorieName = useSelector(
 		(state) => state.currentCategory.categoryName
 	);
-	const searchQuery = useSelector((state) => state.currentCategory.searchQuery);
 
+	//when the id changes reset the pages
+	useEffect(() => {
+		setPage(1);
+	}, [id]);
+
+	const searchQuery = useSelector((state) => state.currentCategory.searchQuery);
 	const { data, error, isFetching } = useGetMoviesQuery({
 		categorieName,
 		page,
@@ -52,7 +60,7 @@ const Movies = () => {
 	return (
 		<div>
 			<FeaturedMovie movie={data.results[0]} />
-			<MovieList movies={data} limit={numberOfMovies} first/>
+			<MovieList movies={data} limit={numberOfMovies} first />
 			<Pagination
 				currentPage={page}
 				setPage={setPage}

@@ -165,9 +165,10 @@ const MovieInfo = () => {
 				<GenresContainer item>
 					{data?.genres?.map((genre) => (
 						<Links
+							style={{ cursor: 'pointer' }}
 							key={genre.name}
 							onClick={() => {
-								navigate('/');
+								navigate(`/genre/${genre.name}`);
 								dispatch(selectCategory(genre.id));
 							}}
 						>
